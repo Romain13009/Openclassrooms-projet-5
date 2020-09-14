@@ -1,0 +1,46 @@
+.navbar {
+  background-color: #f3e9f1;
+}
+.navbar a {
+  color: black;
+  font-size: 30px;
+}
+.navbar i {
+  background: linear-gradient(to right, #de8621, #8f5bfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 10px;
+}
+
+#panier h1, #panier #mainform, #panier button {
+  margin-top: 3vw;
+}
+#panier #leftform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#panier #rightform label {
+  margin-right: 5px;
+}
+#panier #rightform input {
+  margin-bottom: 5px;
+}
+
+#formbutton {
+  background-color: #8f5bfe;
+  border: 1px solid black;
+}
+
+/*Jumbotron*/
+.jumbotron-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron h1 {
+  text-shadow: 0px 0px 10px black;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,23 @@
+#panier{
+    h1, #mainform, button{
+        margin-top: 3vw;
+    }
+    #leftform{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #rightform{
+        label{
+            margin-right: 5px;
+        }
+        input{
+            margin-bottom: 5px;
+        }
+    }
+}
+
+#formbutton{
+    background-color: $secondary;
+    border: 1px solid black;
+}

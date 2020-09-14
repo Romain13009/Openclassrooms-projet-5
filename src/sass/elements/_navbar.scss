@@ -1,0 +1,12 @@
+
+.navbar{
+    background-color: $primary;
+    a{
+        color: $text-color;
+        font-size: 30px;
+    }
+    i{
+        @include logo_color;
+        margin-right: 10px;
+    }
+}

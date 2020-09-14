@@ -1,0 +1,5 @@
+@mixin logo_color {
+    background: linear-gradient(to right, #de8621, #8f5bfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
