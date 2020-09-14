@@ -5,33 +5,63 @@ const url = "http://localhost:3000/api/cameras";
 
 /*Appel de l'API*/
 
-/*
-var request = new XMLHttpRequest();
-request.onreadystatechange = fonction(); {
-    if (this.readyState ==  XMLHttpRequest.DONE && this.status == 200){
-        resolve(JSON.parse(this.responseText));
-        console.log("Connexion réussie")
-    }
-    else{
-        console.log("Erreur de connexion")
-    }
-};
-request.open("GET", "http://localhost:3000/api/cameras");
-request.send(); */
 
 const getCams = async function () {
-    let response = await fetch(url);
-    let data = await response.json ();
-    console.log (data);
+    const response = await fetch(url);
+    return await response.json();
 }
 
-getCams();
 
 
-/*##########################################################
+/*##########################################################*/
 
-/*On crée la fonction de la liste des produits proposés qui sera présente sur l'index*/
+async function listeCams() {
+    const cams = await getCams();
 
-/*On vient cibler la balise section ayant l'id "Produits"*/
+    /*On vient cibler la balise section ayant l'id "Produits"*/
 
-let Produits = document.getElementById("Produits");
+    let produits = document.getElementById("Produits");
+
+    /*On crée l'affichage de la liste des produits proposés qui sera présente sur l'index*/
+
+    cams.forEach((cameras) => {
+        let produitContainer = document.createElement("div");
+        let produitB1 = document.createElement("div");
+        let produitB2 = document.createElement("div");
+        let produitNom = document.createElement("h2");
+        let produitLien = document.createElement("a");
+        let produitPrix = document.createElement("p");
+        let produitImage = document.createElement("img");
+
+    /*Modification des attributs de chaque élément crée*/
+
+        produitContainer.setAttribute("class", "Block");
+        produitB1.setAttribute("class", "B1");
+        produitB2.setAttribute("class", "B2");
+        produitNom.setAttribute("class", "Nomproduits");
+        produitLien.setAttribute("href", cameras._id);
+        produitPrix.setAttribute("class", "Prixproduit");
+        produitImage.setAttribute("src", cameras.imageUrl);
+        produitImage.setAttribute("alt", "image du produit");
+        produitImage.setAttribute("class", "Imageproduit");
+        
+    /*Hiérarchisation des élements crées*/
+        
+        produits.appendChild(produitContainer);
+        produitContainer.appendChild(produitB1);
+        produitContainer.appendChild(produitB2);
+        produitB1.appendChild(produitImage);
+        produitB2.appendChild(produitNom);
+        produitB2.appendChild(produitPrix);
+        produitB2.appendChild(produitLien);
+
+    /*Attribuation des données aux élements créees*/
+
+        produitNom.textContent = cameras.name;
+        produitPrix.textContent = cameras.price / 100 + " " + "euros";
+        produitLien.textContent = "Voir la description du produit.";
+
+    });
+};
+
+listeCams();

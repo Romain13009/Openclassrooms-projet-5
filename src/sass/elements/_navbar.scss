@@ -1,8 +1,8 @@
 
 .navbar{
-    background-color: $primary;
+    background-color: $navcolor;
     a{
-        color: $text-color;
+        @include logo_color;
         font-size: 30px;
     }
     i{
