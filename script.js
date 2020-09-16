@@ -15,6 +15,8 @@ const getCams = async function () {
 
 /*##########################################################*/
 
+/*LISTE INDEX*/
+
 async function listeCams() {
     const cams = await getCams();
 
@@ -39,7 +41,7 @@ async function listeCams() {
         produitB1.setAttribute("class", "B1");
         produitB2.setAttribute("class", "B2");
         produitNom.setAttribute("class", "Nomproduits");
-        produitLien.setAttribute("href", cameras._id);
+        produitLien.setAttribute("href", "?id=" + cameras._id);
         produitPrix.setAttribute("class", "Prixproduit");
         produitImage.setAttribute("src", cameras.imageUrl);
         produitImage.setAttribute("alt", "image du produit");
@@ -55,7 +57,7 @@ async function listeCams() {
         produitB2.appendChild(produitPrix);
         produitB2.appendChild(produitLien);
 
-    /*Attribuation des données aux élements créees*/
+    /*Attribution des données aux élements créees*/
 
         produitNom.textContent = cameras.name;
         produitPrix.textContent = cameras.price / 100 + " " + "euros";
@@ -65,3 +67,53 @@ async function listeCams() {
 };
 
 listeCams();
+
+/*PRODUIT SELECTIONNE INDEX*/
+
+/*Création de la variable contenant l'id*/
+
+let camId = "";
+async function selectionProduit() {
+    camId = location.search.substring(4)
+    const descriptionCam = await getCams();
+
+    /*On vient cibler la balise div ayant pour id Descriptionproduit*/
+
+    let descriptionProduit = document.getElementById("Descriptionproduit");
+
+    /*On crée l'affichage de la description du produit séléctionné par l'utilisateur*/
+
+    let descriptionContainer = document.createElement("div");
+    let descriptionProduitB1 = document.createElement("div");
+    let descriptionProduitB2 = document.createElement("div");
+    let descriptionProduitNom = document.createElement("h2");
+    let descriptionProduitPrix = document.createElement("p");
+    let descriptionProduitImage = document.createElement("img");
+    let descriptionProduitDescription = document.createElement("p");
+
+    /*Modification des attributs de chaque élément crée*/
+
+    descriptionContainer.setAttribute("class", "Blockdescription");
+    descriptionProduitB1.setAttribute("class", "B1description");
+    descriptionProduitB2.setAttribute("class", "B2description");
+    descriptionProduitNom.setAttribute("class", "Nomdescription");
+    descriptionProduitPrix.setAttribute("class", "Prixdescription");
+    descriptionProduitImage.setAttribute("src", descriptionCam.imageUrl);
+    descriptionProduitImage.setAttribute("alt", "Photographie de l'appareil.");
+    descriptionProduitImage.setAttribute("class", "imagedescription");
+    descriptionProduitDescription.setAttribute("class", "Descriptionproduit");
+
+    /*Hiérarchisation des élements crées*/
+
+    descriptionProduit.appendChild(descriptionContainer);
+    descriptionContainer.appendChild(descriptionProduitB1);
+    descriptionContainer.appendChild(descriptionProduitB2);
+    descriptionProduitB1.appendChild(descriptionProduitImage);
+    descriptionProduitB2.appendChild(descriptionProduitNom);
+    descriptionProduitB2.appendChild(descriptionProduitPrix);
+    descriptionProduitB2.appendChild(descriptionProduitDescription);
+
+    /*Attribution des données aux élements créees*/
+    
+
+}

@@ -2,8 +2,8 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8"/>
-        <title>Caméras Vintage</title>
-        <meta name="description" content="Vente de caméras vintage.">
+        <title>Produit séléctionné</title>
+        <meta name="description" content="Votre séléction.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
         <link href="./src/css/style.css" rel="stylesheet">
@@ -33,12 +33,18 @@
         <!--MAIN-->
         <main>
             <div class="container">
-                <div class="jumbotron text-white jumbotron-image" style="background-image: url(./images/lentille.jpg);">
-                    <h1>Bienvenue sur Orinoco !</h1>
-                </div>
                 <div class="row">
                     <div class="col">
-                        <section id="Produits"></section>
+                        <section id="Selectionproduit">
+                            <label for="couleur">Personnaliser votre produit</label><br />
+                            <select name="couleur" id="couleur">
+                                <option value="bleu">Bleu</option>
+                                <option value="Noir">Noir</option>
+                                <option value="Blanc">Blanc</option>
+                                <option value="Rouge">Rouge</option>
+                            </select>
+                            <div id="Descriptionproduit"></div>
+                        </section>
                     </div>
                 </div>
             </div>
