@@ -1,0 +1,57 @@
+.Mainproduit{
+    background-color: $background;
+    height: 100vh;
+}
+
+#Selectionproduit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    label{
+        margin-top: 10px;
+    }
+    select{
+        margin-top: -20px;
+    }
+}
+
+.Footerproduit{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#Boutonpanier{
+    color: $secondary;
+    border-color: $secondary;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 50px;
+    &:hover{
+        background-color: $secondary;
+        color: $background;
+    }
+}
+/*API*/
+
+.Blockdescription{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+
+.Imagedescription{
+    width: 225,7px;
+    height: 150px;
+}
+
+.B2description{
+    margin-left: 50px;
+    width: 30vw;
+}

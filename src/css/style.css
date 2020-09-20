@@ -79,4 +79,61 @@ main {
   text-shadow: 0 1px 0 #8f5bfe, 0 -1px 0 #de8621;
 }
 
+.Mainproduit {
+  background-color: #ececec;
+  height: 100vh;
+}
+
+#Selectionproduit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+#Selectionproduit label {
+  margin-top: 10px;
+}
+#Selectionproduit select {
+  margin-top: -20px;
+}
+
+.Footerproduit {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#Boutonpanier {
+  color: #8f5bfe;
+  border-color: #8f5bfe;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 50px;
+}
+#Boutonpanier:hover {
+  background-color: #8f5bfe;
+  color: #ececec;
+}
+
+/*API*/
+.Blockdescription {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.Imagedescription {
+  width: 225, 7px;
+  height: 150px;
+}
+
+.B2description {
+  margin-left: 50px;
+  width: 30vw;
+}
+
 /*# sourceMappingURL=style.css.map */
