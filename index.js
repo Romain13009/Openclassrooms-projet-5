@@ -9,7 +9,7 @@ const getCams = async function () {
     return await response.json();
 }
 
-
+getCams();
 
 /*##########################################################*/
 
@@ -65,3 +65,4 @@ async function listeCams() {
 };
 
 listeCams();
+

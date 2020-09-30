@@ -22,7 +22,7 @@
                             <a class="nav-link" href="index.html">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Panier</a>
+                            <a class="nav-link" href="#">Panier(<span id="Numberarticle"></span>)</a>
                         </li>
                     </ul>
                 </nav>
@@ -30,70 +30,101 @@
         </header>
 
         <!--MAIN-->
-        <div class="container" id="panier">
-            <div class="row">
-                <div class="col">
-                    <h1 class="text-center">Votre panier :</h1>
+        <main>
+            <div class="container" id="panier">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="text-center">Votre panier :</h1>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row text-center" id="mainform">
-                <div class="col" id="leftform">
-                    <p>Votre panier est vide.</p>
+                <div class="row text-center" id="mainform">
+                    <div class="col" id="leftform">
+                        <section id="Sectionpanier">
+                            <p id="panierVide">Votre panier est vide.</p>
+                        </section>
+                    </div>
+                    <div class="col" id="rightform">
+                        <section id="Sectionformulaire">
+                            <p>Veuillez remplir ce formulaire afin d'effectuer le paiement de votre commande.</p>
+                            <form method="post">
+                                <fieldset> <!--Identité-->
+                                    <legend>Civilité</legend>
+                                    <div class="row">
+                                        <label for="Nom">Nom :</label>
+                                        <input type="text" name="Nom" id="Nom" required>
+                                        <label for="Prénom">Prénom :</label>
+                                        <input type="text" name="Prénom" id="Prénom" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="Nom">Adresse mail :</label>
+                                        <input type="email" name="Email" id="Email" readonly>
+                                    </div>
+                                </fieldset>
+                                <fieldset> <!--Adresse de facturation-->
+                                    <legend>Adresse de facturation</legend>
+                                    <div class="row">
+                                        <label for="Adresse">Adresse :</label>
+                                        <input type="text" name="Adresse" id="Adresse" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="Ville">Ville :</label>
+                                        <input type="text" name="Ville" id="Ville" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="Codepostal">Code postal :</label>
+                                        <input type="text" name="Codepostal" id="Codepostal" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="Téléphone">Téléphone :</label>
+                                        <input type="tel" name="Numéro de Téléphone" id="Téléphone">
+                                    </div>
+                                </fieldset>
+                                <fieldset> <!--Méthode de paiement-->
+                                    <legend>Méthode de paiement</legend>
+                                    <div class="row">
+                                        <label for="Numérocarte">Numéro carte bancaire :</label>
+                                        <input type="number" name="numéro carte" id="Numérocarte" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="Pictogramme">Pictogramme :</label>
+                                        <input type="number" name="Pictogramme" id="Pictogramme" maxlength="3" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="Expiration">Date d'expiration :</label>
+                                        <input type="date" name="Date d'expiration" id="Expiration" required>
+                                    </div>
+                                </fieldset>
+                                <button type="submit" class="btn" id="formbutton">Envoyer</button>
+                            </form>
+                        </section>
+                    </div>
                 </div>
-                <div class="col" id="rightform">
-                    <p>Veuillez remplir ce formulaire afin d'effectuer le paiement de votre commande.</p>
-                    <form method="post">
-                        <fieldset> <!--Identité-->
-                            <legend>Civilité</legend>
-                            <div class="row">
-                                <label for="Nom">Nom :</label>
-                                <input type="text" name="Nom" id="Nom" required>
-                                <label for="Prénom">Prénom :</label>
-                                <input type="text" name="Prénom" id="Prénom" required>
-                            </div>
-                            <div class="row">
-                                <label for="Nom">Adresse mail :</label>
-                                <input type="email" name="Email" id="Email" readonly>
-                            </div>
-                        </fieldset>
-                        <fieldset> <!--Adresse de facturation-->
-                            <legend>Adresse de facturation</legend>
-                            <div class="row">
-                                <label for="Adresse">Adresse :</label>
-                                <input type="text" name="Adresse" id="Adresse" required>
-                            </div>
-                            <div class="row">
-                                <label for="Ville">Ville :</label>
-                                <input type="text" name="Ville" id="Ville" required>
-                            </div>
-                            <div class="row">
-                                <label for="Codepostal">Code postal :</label>
-                                <input type="text" name="Codepostal" id="Codepostal" required>
-                            </div>
-                            <div class="row">
-                                <label for="Téléphone">Téléphone :</label>
-                                <input type="tel" name="Numéro de Téléphone" id="Téléphone">
-                            </div>
-                        </fieldset>
-                        <fieldset> <!--Méthode de paiement-->
-                            <legend>Méthode de paiement</legend>
-                            <div class="row">
-                                <label for="Numérocarte">Numéro carte bancaire :</label>
-                                <input type="number" name="numéro carte" id="Numérocarte" required>
-                            </div>
-                            <div class="row">
-                                <label for="Pictogramme">Pictogramme :</label>
-                                <input type="number" name="Pictogramme" id="Pictogramme" maxlength="3" required>
-                            </div>
-                            <div class="row">
-                                <label for="Expiration">Date d'expiration :</label>
-                                <input type="date" name="Date d'expiration" id="Expiration" required>
-                            </div>
-                        </fieldset>
-                        <button type="submit" class="btn" id="formbutton">Envoyer</button>
-                    </form>
+            <!--FOOTER-->
+            <footer class="Footerproduit">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            Orinoco, site-e commerce. 
+                        </div>
+                        <div class="col">
+                            Copyright © 2020.
+                        </div>
+                        <div class="col">
+                            Tous droits réservés.
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </footer>
+
+            <!--JS SCRIPT-->
+            <script src="./fonctions.js"></script>
+            <script src="./panier.js"></script>
+            
+            <!--JS BOOTSTRAP-->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        </main>
     </body>
 </html>

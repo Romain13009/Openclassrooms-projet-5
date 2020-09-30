@@ -35,6 +35,20 @@
         color: $background;
     }
 }
+
+#Quantité{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    label{
+        margin-top: 10px;
+    }
+    select{
+        margin-top: -20px;
+    }
+}
 /*API*/
 
 .Blockdescription{

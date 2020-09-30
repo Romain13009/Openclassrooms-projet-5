@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .navbar {
   background-color: rgba(0, 0, 0, 0.897);
 }
@@ -117,6 +118,20 @@ main {
   color: #ececec;
 }
 
+#Quantité {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+#Quantité label {
+  margin-top: 10px;
+}
+#Quantité select {
+  margin-top: -20px;
+}
+
 /*API*/
 .Blockdescription {
   display: flex;
@@ -134,6 +149,33 @@ main {
 .B2description {
   margin-left: 50px;
   width: 30vw;
+}
+
+/*TABLEAU RECAPITULATIF DU PANIER*/
+.tableauPanier {
+  border: 2px solid black;
+  width: 30vw;
+  margin-right: 20px;
+}
+
+.tableauHeaderLigne {
+  border-bottom: 2px solid black;
+}
+
+.tableauFooterLigne {
+  width: 100%;
+  color: #8f5bfe;
+}
+
+#articleLigne {
+  border-bottom: 2px solid black;
+}
+
+#articleImage {
+  width: 180, 56px;
+  height: 120px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

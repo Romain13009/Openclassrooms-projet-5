@@ -1,14 +1,8 @@
 // API
 
+//const { json } = require("body-parser");
+
 const url = "http://localhost:3000/api/cameras";
-
-/*Appel de l'API*/
-
-const getCams = async function () {
-    const response = await fetch(url);
-    return await response.json();
-}
-
 
 
 /*##########################################################*/
@@ -24,12 +18,14 @@ let camId = params.get("id");
 
 /*Appel du produit séléctionné*/
 
+let mesVariables; //On stock les données du produit dans cette variable.
 
 async function selectionProduit() {
 
     fetch(url + "/" + camId).then(function(response){
         response.json().then(function(data){
-            console.log(data);
+            mesVariables = data;
+
             /*On vient cibler la balise div ayant pour id Descriptionproduit*/
 
             let descriptionProduit = document.getElementById("Descriptionproduit");
@@ -71,7 +67,6 @@ async function selectionProduit() {
             descriptionProduitNom.textContent = data.name;
             descriptionProduitPrix.textContent = data.price / 100 + " " + "euros";
             descriptionProduitDescription.textContent = data.description;
-            console.log(camId);
 
             
             let selectLentille = document.getElementById("lentille");
@@ -89,3 +84,19 @@ async function selectionProduit() {
 }
 
 selectionProduit();
+
+
+/*Ajouter un article au panier*/
+
+function ajouterAuPanier(){
+    const bouton = document.getElementById("Boutonpanier");
+    bouton.addEventListener("click", async function(){
+        
+        panier.push(mesVariables);
+        localStorage.setItem("monPanier", JSON.stringify(panier));
+        location.reload();
+    });
+};
+
+ajouterAuPanier();
+

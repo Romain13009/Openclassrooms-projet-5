@@ -1,0 +1,27 @@
+/*TABLEAU RECAPITULATIF DU PANIER*/
+
+.tableauPanier{
+    border: 2px solid black;
+    width: 30vw;
+    margin-right: 20px;
+}
+
+.tableauHeaderLigne{
+    border-bottom: 2px solid black;
+}
+
+.tableauFooterLigne{
+    width: 100%;
+    color: $secondary;
+}
+
+#articleLigne{
+    border-bottom: 2px solid black;
+}
+
+#articleImage{
+    width: 180,56px;
+    height: 120px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
