@@ -94,6 +94,7 @@ function ajouterAuPanier(){
         
         panier.push(mesVariables);
         localStorage.setItem("monPanier", JSON.stringify(panier));
+        alert("L'article a bien été ajouté à votre panier.")
         location.reload();
     });
 };

@@ -47,52 +47,35 @@
                     <div class="col" id="rightform">
                         <section id="Sectionformulaire">
                             <p>Veuillez remplir ce formulaire afin d'effectuer le paiement de votre commande.</p>
-                            <form method="post">
+                            <form method="post" id="formulaire">
                                 <fieldset> <!--Identité-->
                                     <legend>Civilité</legend>
-                                    <div class="row">
-                                        <label for="Nom">Nom :</label>
-                                        <input type="text" name="Nom" id="Nom" required>
-                                        <label for="Prénom">Prénom :</label>
-                                        <input type="text" name="Prénom" id="Prénom" required>
+                                    <div class="row identité">
+                                        <label for="Nom" class="labelform">Nom :</label>
+                                        <input type="text" name="Nom" id="Nom" placeholder="Nom" required>
                                     </div>
-                                    <div class="row">
-                                        <label for="Nom">Adresse mail :</label>
-                                        <input type="email" name="Email" id="Email" readonly>
+                                    <div class="row identité">
+                                        <label for="Prénom" class="labelform">Prénom :</label>
+                                        <input type="text" name="Prénom" id="Prénom" placeholder="Prénom" required>
+                                    </div>
+                                    <div class="row identité">
+                                        <label for="Nom" class="labelform">Adresse mail :</label>
+                                        <input type="email" name="Email" id="Email" placeholder="Email" required>
                                     </div>
                                 </fieldset>
-                                <fieldset> <!--Adresse de facturation-->
+                                <fieldset class="facturation"> <!--Adresse de facturation-->
                                     <legend>Adresse de facturation</legend>
                                     <div class="row">
-                                        <label for="Adresse">Adresse :</label>
-                                        <input type="text" name="Adresse" id="Adresse" required>
+                                        <label for="Adresse" class="labelform">Adresse :</label>
+                                        <input type="text" name="Adresse" id="Adresse" placeholder="Adresse" required>
                                     </div>
                                     <div class="row">
-                                        <label for="Ville">Ville :</label>
-                                        <input type="text" name="Ville" id="Ville" required>
+                                        <label for="Ville" class="labelform">Ville :</label>
+                                        <input type="text" name="Ville" id="Ville" placeholder="Ville" required>
                                     </div>
                                     <div class="row">
-                                        <label for="Codepostal">Code postal :</label>
-                                        <input type="text" name="Codepostal" id="Codepostal" required>
-                                    </div>
-                                    <div class="row">
-                                        <label for="Téléphone">Téléphone :</label>
-                                        <input type="tel" name="Numéro de Téléphone" id="Téléphone">
-                                    </div>
-                                </fieldset>
-                                <fieldset> <!--Méthode de paiement-->
-                                    <legend>Méthode de paiement</legend>
-                                    <div class="row">
-                                        <label for="Numérocarte">Numéro carte bancaire :</label>
-                                        <input type="number" name="numéro carte" id="Numérocarte" required>
-                                    </div>
-                                    <div class="row">
-                                        <label for="Pictogramme">Pictogramme :</label>
-                                        <input type="number" name="Pictogramme" id="Pictogramme" maxlength="3" required>
-                                    </div>
-                                    <div class="row">
-                                        <label for="Expiration">Date d'expiration :</label>
-                                        <input type="date" name="Date d'expiration" id="Expiration" required>
+                                        <label for="Codepostal" class="labelform">Code postal :</label>
+                                        <input type="text" name="Codepostal" id="Codepostal" placeholder="Code postal" required>
                                     </div>
                                 </fieldset>
                                 <button type="submit" class="btn" id="formbutton">Envoyer</button>
@@ -101,7 +84,7 @@
                     </div>
                 </div>
             <!--FOOTER-->
-            <footer class="Footerproduit">
+            <footer class="Footerpanier">
                 <div class="container">
                     <div class="row">
                         <div class="col">

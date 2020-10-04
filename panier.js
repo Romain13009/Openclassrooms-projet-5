@@ -45,8 +45,10 @@ function affichagePanier (){
 
         /*Création d'une ligne dans le tableau pour chaque produit composant le panier*/
 
-        JSON.parse(localStorage.getItem("monPanier")).forEach(article => {
-            
+        
+
+        JSON.parse(localStorage.getItem("monPanier")).forEach((article, index) => {
+
             let articleLigne = document.createElement("tr");
             let articleImage = document.createElement("img");
             let articleNom = document.createElement("td");
@@ -60,9 +62,21 @@ function affichagePanier (){
             articleImage.setAttribute("src", article.imageUrl);
             articleNom.setAttribute("id", "articleNom");
             articlePrix.setAttribute("id", "articlePrix");
-            articleAction.setAttribute("id", "articleAction");
+            articleAction.setAttribute("id", index);
             articleAction.setAttribute("alt", "Retirer l'article du panier.");
             articleAction.setAttribute("class", "fas fa-trash-alt"); //Logo poubelle pour supprimer l'article du panier.
+            
+            
+            
+            articleAction.addEventListener("click", function(event){
+                console.log(event.target.id);
+                
+                suppressionArticle(event.target.id);
+                
+            });
+            
+            //console.log(i);
+            
 
             /*Hiérarchisation des élements crées*/
 
@@ -76,11 +90,6 @@ function affichagePanier (){
 
             articleNom.textContent = article.name;
             articlePrix.textContent = article.price / 100 + " " + "euros";
-
-            /*Suppression des articles*/
-
-            //articleAction.addEventListener("click",)////////////////////////////////////////////////////////////////////////////////////////
-
         });
 
         /*Création de la ligne du bas du tableau affichant le prix total de la commande*/
@@ -98,3 +107,74 @@ function affichagePanier (){
 }
 
 affichagePanier ();
+
+
+/*Fonction de suppression d'article du panier*/
+
+
+function suppressionArticle (i){
+    console.log("suppression article i :", i);
+    panier.splice(i, 1); //suppression de l'element i du tableau;  
+    localStorage.clear(); //on vide le storage avant de le mettre à jour;
+    localStorage.setItem("monPanier", JSON.stringify(panier)); //maj du panier sans l'élément i;
+    window.location.reload();
+}
+
+
+
+/*FORMULAIRE*/
+
+/*Validation de formulaire*/
+
+document.getElementById("formulaire").addEventListener("submit", function (envoi){
+    
+    //Création d'une variable Erreur
+    let erreurForm;
+
+    //Récupération des champs
+    let nomForm = getElementById("Nom");
+    let prenomForm = getElementById("Prénom");
+    let emailForm = getElementById("Email");
+    let adresseForm = getElementById("Adresse");
+    let villeForm = getElementById("Ville");
+    let codePostalForm = getElementById("Codepostal");
+    let numCarteForm = getElementById("Numérocarte");
+    let pictoCarteForm = getElementById("Pictogramme");
+    let expiCarteForm = getElementById("Expiration");
+
+    //Affichage de l'erreur selon l'erreur
+    if (nomForm.value == ""){
+        erreurForm = "Veuillez indiquer votre nom."
+    }
+    if (prenomForm.value == ""){
+        erreurForm = "Veuillez indiquer votre prénom."
+    }
+    if (emailForm.value == ""){
+        erreurForm = "Veuillez indiquer votre email."
+    }
+    if (adresseForm.value == ""){
+        erreurForm = "Veuillez indiquer votre adresse."
+    }
+    if (villeForm.value == ""){
+        erreurForm = "Veuillez indiquer votre ville."
+    }
+    if (codePostalForm.value == ""){
+        erreurForm = "Veuillez indiquer votre code postal."
+    }
+    if (numCarteForm.value == ""){
+        erreurForm = "Veuillez indiquer le numéro de votre carte."
+    }
+    if (pictoCarteForm.value == ""){
+        erreurForm = "Veuillez indiquer le pictogramme de votre carte."
+    }
+    if (expiCarteForm.value == ""){
+        erreurForm = "Veuillez indiquer la date d'expiration de votre carte."
+    }
+
+    if (erreurForm){
+        envoi.preventDefault();
+        
+    }
+
+    
+})
