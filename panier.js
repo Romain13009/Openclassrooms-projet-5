@@ -122,59 +122,71 @@ function suppressionArticle (i){
 
 
 
+
 /*FORMULAIRE*/
 
 /*Validation de formulaire*/
 
+//Création de l'objet à envoyer, regroupant le formulaire et les articles
+const commandeUser = {
+    contact: {},
+    products: [],
+}
+
 document.getElementById("formulaire").addEventListener("submit", function (envoi){
     
-    //Création d'une variable Erreur
-    let erreurForm;
+    envoi.preventDefault();
 
-    //Récupération des champs
-    let nomForm = getElementById("Nom");
-    let prenomForm = getElementById("Prénom");
-    let emailForm = getElementById("Email");
-    let adresseForm = getElementById("Adresse");
-    let villeForm = getElementById("Ville");
-    let codePostalForm = getElementById("Codepostal");
-    let numCarteForm = getElementById("Numérocarte");
-    let pictoCarteForm = getElementById("Pictogramme");
-    let expiCarteForm = getElementById("Expiration");
+    //Avant d'envoyer un formulaire, vérification que le panier n'est pas vide.
+    if (panier.length == 0){
+        alert("Attention, votre panier est vide.");
+    }
+    else {
+        //Récupération des champs
+        let nomForm = document.getElementById("Nomform").value;
+        let prenomForm = document.getElementById("Prénom").value;
+        let emailForm = document.getElementById("Email").value;
+        let adresseForm = document.getElementById("Adresse").value;
+        let villeForm = document.getElementById("Ville").value;
+        let codePostalForm = document.getElementById("Codepostal").value;
 
-    //Affichage de l'erreur selon l'erreur
-    if (nomForm.value == ""){
-        erreurForm = "Veuillez indiquer votre nom."
-    }
-    if (prenomForm.value == ""){
-        erreurForm = "Veuillez indiquer votre prénom."
-    }
-    if (emailForm.value == ""){
-        erreurForm = "Veuillez indiquer votre email."
-    }
-    if (adresseForm.value == ""){
-        erreurForm = "Veuillez indiquer votre adresse."
-    }
-    if (villeForm.value == ""){
-        erreurForm = "Veuillez indiquer votre ville."
-    }
-    if (codePostalForm.value == ""){
-        erreurForm = "Veuillez indiquer votre code postal."
-    }
-    if (numCarteForm.value == ""){
-        erreurForm = "Veuillez indiquer le numéro de votre carte."
-    }
-    if (pictoCarteForm.value == ""){
-        erreurForm = "Veuillez indiquer le pictogramme de votre carte."
-    }
-    if (expiCarteForm.value == ""){
-        erreurForm = "Veuillez indiquer la date d'expiration de votre carte."
-    }
-
-    if (erreurForm){
-        envoi.preventDefault();
+        //Création de l'objet formulaireObjet
+        commandeUser.contact = {
+            firstName: prenomForm,
+            lastName: nomForm,  
+            address: adresseForm,
+            city: villeForm,
+            email: emailForm,
+        }    
         
-    }
+        //Création du tableau des articles
+        
+        panier.forEach(articlePanier =>
+            commandeUser.products.push(articlePanier._id)
+        )
 
-    
+        //Création de l'objet à envoyer, regroupant le formulaire et les articles
+  
+        console.log(commandeUser);
+
+        //Envoi des données récupérées
+        const optionsFetch = {
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            method:"POST",
+            body: JSON.stringify(commandeUser),         
+        }
+
+        fetch(urlOrder, optionsFetch).then(function(response){
+            response.json().then(console.log(response))
+            
+        });
+    }
 })
+
+//fetch(url).then(function(response) {   response.text().then(function(text) {     poemDisplay.textContent = text;   }); });
+
+
+/*fetch('./api/some.json')   .then(     function(response) {       if (response.status !== 200) {         console.log('Looks like there was a problem. Status Code: ' +           response.status);         return;       }        // Examine the text in the response       response.json().then(function(data) {         console.log(data);       });     }   )   .catch(function(err) {     console.log('Fetch Error :-S', err);   });*/
+

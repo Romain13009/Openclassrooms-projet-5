@@ -30,7 +30,7 @@
         </header>
 
         <!--MAIN-->
-        <main>
+        <main class="Mainpanier">
             <div class="container" id="panier">
                 <div class="row">
                     <div class="col">
@@ -52,7 +52,7 @@
                                     <legend>Civilité</legend>
                                     <div class="row identité">
                                         <label for="Nom" class="labelform">Nom :</label>
-                                        <input type="text" name="Nom" id="Nom" placeholder="Nom" required>
+                                        <input type="text" id="Nomform" name="Nom" placeholder="Nom" required>
                                     </div>
                                     <div class="row identité">
                                         <label for="Prénom" class="labelform">Prénom :</label>
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="row">
                                         <label for="Codepostal" class="labelform">Code postal :</label>
-                                        <input type="text" name="Codepostal" id="Codepostal" placeholder="Code postal" required>
+                                        <input type="number" name="Codepostal" id="Codepostal" placeholder="Code postal" required>
                                     </div>
                                 </fieldset>
                                 <button type="submit" class="btn" id="formbutton">Envoyer</button>
@@ -85,7 +85,7 @@
                 </div>
             <!--FOOTER-->
             <footer class="Footerpanier">
-                <div class="container">
+                <div class="container" id="Containerfooterpanier">
                     <div class="row">
                         <div class="col">
                             Orinoco, site-e commerce. 

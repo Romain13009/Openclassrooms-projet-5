@@ -1,9 +1,3 @@
-// API
-
-//const { json } = require("body-parser");
-
-const url = "http://localhost:3000/api/cameras";
-
 
 /*##########################################################*/
 

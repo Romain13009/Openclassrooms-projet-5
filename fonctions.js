@@ -1,3 +1,7 @@
+// API
+
+const url = "http://localhost:3000/api/cameras";
+const urlOrder = "http://localhost:3000/api/cameras/order";
 
 /*Création du panier utilisateur si besoin*/
 
