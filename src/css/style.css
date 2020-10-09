@@ -40,7 +40,10 @@ main {
 }
 
 .Footerindex {
-  margin-top: 40px;
+  position: relative;
+  bottom: 0;
+  margin-top: 100px;
+  max-width: 100vw;
   text-align: center;
 }
 
@@ -80,9 +83,40 @@ main {
   text-shadow: 0 1px 0 #8f5bfe, 0 -1px 0 #de8621;
 }
 
+@media all and (max-width: 960px) {
+  #rowfooter .col {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+}
+@media all and (max-width: 760px) {
+  .Imageproduit {
+    width: 150, 5px;
+    height: 100px;
+  }
+
+  .navbar-expand .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .navbar a {
+    font-size: 15px;
+  }
+
+  .B2 h2 {
+    text-shadow: 0 1px 0 #8f5bfe, 0 -1px 0 #de8621;
+    font-size: 1rem;
+  }
+
+  #rowfooter .col {
+    font-size: 15px;
+  }
+}
 .Mainproduit {
   background-color: #ececec;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #Selectionproduit {
@@ -100,9 +134,11 @@ main {
 }
 
 .Footerproduit {
-  position: absolute;
+  position: relative;
   bottom: 0;
+  margin-top: 100px;
   max-width: 100vw;
+  text-align: center;
 }
 
 #Boutonpanier {
@@ -151,20 +187,38 @@ main {
   width: 30vw;
 }
 
+@media all and (max-width: 760px) {
+  .Imagedescription {
+    width: 150, 5px;
+    height: 100px;
+  }
+
+  .Blockdescription {
+    margin-top: 20px;
+    flex-direction: column;
+    width: 90vw;
+  }
+  .Blockdescription .B2description {
+    width: 90vw;
+    margin-top: 20px;
+  }
+}
 .Mainpanier {
   background-color: #ececec;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .Footerpanier {
   position: relative;
   bottom: 0;
+  margin-top: 100px;
+  max-width: 100vw;
+  text-align: center;
 }
 
 #Containerfooterpanier {
   padding: 0;
   margin: 0;
-  width: 100vw;
   text-align: center;
 }
 
@@ -198,6 +252,51 @@ main {
 /*FORMULAIRE*/
 .labelform {
   min-width: 180px;
+}
+
+/*MEDIA*/
+@media all and (max-width: 960px) {
+  #Sectionformulaire {
+    margin-top: 20px;
+  }
+
+  .identité {
+    padding-left: 80px;
+  }
+}
+@media all and (max-width: 760px) {
+  #articleImage {
+    width: 150, 5px;
+    height: 100px;
+  }
+
+  .tableauPanier {
+    border: 2px solid black;
+    width: 30vw;
+    margin-right: 0px;
+  }
+}
+.Mainconfirmation {
+  background-color: #ececec;
+  min-height: 100vh;
+}
+
+#h1confirmation {
+  margin-top: 50px;
+  font-size: 3rem;
+}
+
+#Sectionconfirmation {
+  margin-top: 80px;
+  font-size: 1.5rem;
+}
+
+.Footerconfirmation {
+  position: relative;
+  bottom: 0;
+  margin-top: 100px;
+  max-width: 100vw;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

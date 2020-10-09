@@ -1,3 +1,5 @@
+let total = 0; //On stock le prix total dans cette variable afin de l'afficher dans le tableau et dans l'URL
+
 /*Affichage du panier utilisateur dans la page "panier"*/
 
 function affichagePanier (){
@@ -75,8 +77,6 @@ function affichagePanier (){
                 
             });
             
-            //console.log(i);
-            
 
             /*Hiérarchisation des élements crées*/
 
@@ -97,7 +97,6 @@ function affichagePanier (){
         tableauPanier.appendChild(tableauFooterLigne);
         tableauFooterLigne.appendChild(tableauFooterPrixTotal);
         
-        let total = 0; //On stock le prix total dans cette variable afin de l'afficher dans le tableau
         JSON.parse(localStorage.getItem("monPanier")).forEach(priceArticle => {
             total += priceArticle.price / 100;
         });
@@ -167,7 +166,7 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
 
         //Création de l'objet à envoyer, regroupant le formulaire et les articles
   
-        console.log(commandeUser);
+        //console.log(commandeUser);
 
         //Envoi des données récupérées
         const optionsFetch = {
@@ -176,17 +175,20 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
             },
             method:"POST",
             body: JSON.stringify(commandeUser),         
-        }
+        }     
 
-        fetch(urlOrder, optionsFetch).then(function(response){
-            response.json().then(console.log(response))
-            
+        /*fetch(urlOrder, optionsFetch)
+        .then(result => result.json())
+        .then(console.log);*/
+
+        fetch(urlOrder, optionsFetch).then(function(response) {
+            response.json().then(function(text) {
+              console.log(text.orderId);
+              window.location = `./confirmation.html?id=${text.orderId}&name=${prenomForm}&prix=${total}`
+            });
         });
+        localStorage.clear()       
     }
 })
 
-//fetch(url).then(function(response) {   response.text().then(function(text) {     poemDisplay.textContent = text;   }); });
-
-
-/*fetch('./api/some.json')   .then(     function(response) {       if (response.status !== 200) {         console.log('Looks like there was a problem. Status Code: ' +           response.status);         return;       }        // Examine the text in the response       response.json().then(function(data) {         console.log(data);       });     }   )   .catch(function(err) {     console.log('Fetch Error :-S', err);   });*/
 

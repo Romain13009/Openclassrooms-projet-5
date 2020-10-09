@@ -2,8 +2,8 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8"/>
-        <title>Caméras Vintage</title>
-        <meta name="description" content="Vente de caméras vintage.">
+        <title>Produit séléctionné</title>
+        <meta name="description" content="Votre séléction.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
         <link href="./src/css/style.css" rel="stylesheet">
@@ -23,7 +23,7 @@
                             <a class="nav-link" href="index.html">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="panier.html">Panier(<span id="Numberarticle"></span>)</a>
+                            <a class="nav-link" href="panier.html">Panier (<span id="Numberarticle"></span>)</a>
                         </li>
                     </ul>
                 </nav>
@@ -31,22 +31,29 @@
         </header>
 
         <!--MAIN-->
-        <main>
-            <div class="container">
-                <div class="jumbotron text-white jumbotron-image" style="background-image: url(./images/lentille.jpg);">
-                    <h1>Bienvenue sur Orinoco !</h1>
+        <main class="Mainconfirmation">
+            <div class="container" id="Containerconfirmation">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="text-center" id="h1confirmation">Confirmation de votre commande.</h1>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <section id="Produits"></section>
+                        <section id="Sectionconfirmation">
+                            <p>Bonjour <span id="Namecommande"></span>.</p><br />
+                            <p>Nous vous remercions pour votre commande. Le prix de vos achats est de <span id="Prixcommande"></span> euros.</p><br />
+                            <p>Voici le numéro de votre commande: <span id="Idcommande"></span></p><br />
+                            <p>Merci de bien vouloir le conserver. Nous espérons vous revoir prochainement et vous remercions pour votre confiance.</p>
+                        </section>
                     </div>
                 </div>
-            </div>
 
+            </div>
             <!--FOOTER-->
-            <footer class="Footerindex">
+            <footer class="Footerconfirmation">
                 <div class="container">
-                    <div class="row" id="rowfooter">
+                    <div class="row">
                         <div class="col">
                             Orinoco, site-e commerce. 
                         </div>
@@ -62,7 +69,7 @@
 
             <!--JS SCRIPT-->
             <script src="./fonctions.js"></script>
-            <script src="./index.js"></script>
+            <script src="./confirmation.js"></script>            
             <!--JS BOOTSTRAP-->
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
