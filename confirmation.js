@@ -1,5 +1,4 @@
 //Attribution des données aux id respectifs
-
 let paramsConfirmation = new URLSearchParams(window.location.search);
 
 let nameConfirmation = document.getElementById("Namecommande");
